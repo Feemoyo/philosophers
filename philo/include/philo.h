@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:31:59 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/02/13 21:17:40 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/02/13 23:41:36 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct	s_pnode
 {
 	pthread_t				philo;
 	pthread_mutex_t			fork;
+	int						d
 	struct s_pnode			*next;
 	struct s_pnode			*previus;
 }	t_pnode;
