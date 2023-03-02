@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:31:59 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/03/02 03:45:39 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:09:49 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_data
 	pthread_mutex_t	*t_lock;
 	pthread_mutex_t	*rip;
 	pthread_mutex_t	*check_m_lock;
+	pthread_mutex_t	*print;
 }				t_data;
 
 typedef struct s_philo

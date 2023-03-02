@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 00:55:01 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/03/02 03:44:12 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:15:52 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,16 @@ static void	ft_rip(t_philo *philo)
 void	ft_hungry(t_philo *philo)
 {
 	pthread_mutex_lock(philo->r_fork);
+	pthread_mutex_lock(philo->data->print);
 	printf("%ld %d has taken a fork\n", ft_current_time(philo->data->first_meal),
 		philo->index);
+	pthread_mutex_unlock(philo->data->print);
 	pthread_mutex_unlock(philo->r_fork);
 	ft_ms_sleep(philo->data->to_die);
+	pthread_mutex_lock(philo->data->print);
 	printf("%ld %d died\n", ft_current_time(philo->data->first_meal),
 		philo->index);
+	pthread_mutex_unlock(philo->data->print);
 	return ;
 }
 
@@ -59,8 +63,10 @@ int	ft_starve(t_philo *philo)
 		if (ft_end(time, &philo[i]))
 		{
 			pthread_mutex_lock(philo->data->rip);
+			pthread_mutex_lock(philo->data->print);
 			printf("%ld %d died\n",
 				ft_current_time(philo->data->first_meal), philo->index);
+			pthread_mutex_unlock(philo->data->print);
 			pthread_mutex_unlock(philo->data->rip);
 			ft_rip(&philo[i]);
 			return (true);

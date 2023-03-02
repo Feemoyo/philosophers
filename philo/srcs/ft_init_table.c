@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:32:41 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/03/01 19:50:57 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:28:05 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ void	ft_init_data(int argc, char **argv, t_data *data)
 	data->t_lock = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * 1);
 	data->rip = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * 1);
 	data->check_m_lock = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * 1);
+	data->print = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * 1);
 	pthread_mutex_init(data->m_lock, NULL);
 	pthread_mutex_init(data->t_lock, NULL);
 	pthread_mutex_init(data->rip, NULL);
 	pthread_mutex_init(data->check_m_lock, NULL);
+	pthread_mutex_init(data->print, NULL);
 }
 
 void	ft_init_dinner(t_data *data, int nbr_philo, pthread_mutex_t **forks,
