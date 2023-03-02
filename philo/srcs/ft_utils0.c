@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:24:04 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/02/13 22:28:26 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/02/28 01:23:43 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	ft_isnum(char **str, int argc)
 {
 	int	i;
-	int j;
-	
+	int	j;
+
 	i = 0;
 	j = 1;
-	if (argc < 4 || argc > 5)
+	if (argc < 5 || argc > 6)
 		return (2);
 	while ((int)str[j][i] >= 48 && (int)str[j][i] <= 57)
 	{
@@ -27,9 +27,9 @@ int	ft_isnum(char **str, int argc)
 		if (!str[j][i] && ++j < argc)
 			i = 0;
 		if (j >= argc && --j)
-			break;
+			break ;
 		if ((int)str[j][i] < 48 || (int)str[j][i] > 57)
-			return(1);
+			return (1);
 	}
 	return (0);
 }

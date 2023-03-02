@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_verify.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 17:56:49 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/02/28 01:24:58 by fmoreira         ###   ########.fr       */
+/*   Created: 2023/02/28 01:16:12 by fmoreira          #+#    #+#             */
+/*   Updated: 2023/03/01 19:17:46 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_verify(int argc, char **argv)
+void	ft_free_dinner(int nbr_philo, t_philo **philo, pthread_mutex_t **forks)
 {
 	int	i;
 
-	i = ft_isnum(argv, argc);
-	if (i)
+	i = 0;
+	while (i < nbr_philo)
 	{
-		if (argc < 5)
-			printf("Error: too feel arguments\n");
-		else if (argc > 6)
-			printf("Error: too many arguments\n");
-		else if (i == 1)
-			printf("Error: only integer values are allowed\n");
-		return (1);
+		free((*philo)[i].eating);
+		i++;
 	}
-	return (0);
+	free(*philo);
+	free(*forks);
+}
+
+void	ft_free_data(t_data *data)
+{
+	free(data->m_lock);
+	free(data->t_lock);
+	free(data->rip);
+	free(data->check_m_lock);
 }

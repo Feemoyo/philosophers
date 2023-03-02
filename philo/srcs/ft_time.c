@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_verify.c                                        :+:      :+:    :+:   */
+/*   ft_time.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 17:56:49 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/02/28 01:24:58 by fmoreira         ###   ########.fr       */
+/*   Created: 2023/02/27 22:46:52 by fmoreira          #+#    #+#             */
+/*   Updated: 2023/03/01 19:25:49 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_verify(int argc, char **argv)
+long	ft_set_timer(void)
 {
-	int	i;
+	struct timeval	time;
 
-	i = ft_isnum(argv, argc);
-	if (i)
-	{
-		if (argc < 5)
-			printf("Error: too feel arguments\n");
-		else if (argc > 6)
-			printf("Error: too many arguments\n");
-		else if (i == 1)
-			printf("Error: only integer values are allowed\n");
-		return (1);
-	}
-	return (0);
+	gettimeofday(&time, NULL);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+}
+
+void	ft_ms_sleep(int time_in_ms)
+{
+	long	start;
+
+	start = ft_set_timer();
+	while ((ft_set_timer() - start) < (long)time_in_ms)
+		usleep(10);
+}
+
+long	ft_current_time(long start)
+{
+	return (ft_set_timer() - start);
 }

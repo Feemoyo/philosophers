@@ -6,7 +6,7 @@
 #    By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 17:52:25 by fmoreira          #+#    #+#              #
-#    Updated: 2023/01/31 12:32:03 by fmoreira         ###   ########.fr        #
+#    Updated: 2023/03/01 19:15:11 by fmoreira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ FLAGS	= -pthread
 INCD_	= philo.h
 INCD_DIR	= ./include
 
-SRCS	= main.c ft_verify.c ft_utils0.c ft_init_philo.c
+SRCS	= main.c ft_verify.c ft_time.c ft_init_table.c ft_routine.c\
+			ft_utils0.c ft_utils1.c ft_free.c
 SRCS_DIR	= ./srcs
 
 OBJS_DIR	= ./objs
