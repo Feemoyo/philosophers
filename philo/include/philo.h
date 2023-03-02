@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:31:59 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/03/01 19:28:49 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/03/02 03:45:39 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ typedef struct s_data
 	pthread_mutex_t	*check_m_lock;
 }				t_data;
 
-typedef struct	s_philo
+typedef struct s_philo
 {
-	int		index;
-	int		eat;
-	long	last_meal;
+	int				index;
+	int				eat;
+	long			last_meal;
 	pthread_t		thread_philo;
 	pthread_mutex_t	*eating;
 	pthread_mutex_t	*l_fork;
@@ -62,8 +62,8 @@ int			ft_atoi(const char *str);
 
 // ft_init_table.c
 void		ft_init_data(int argc, char **argv, t_data *data);
-void		ft_init_dinner(t_data *data, int nbr_philo, pthread_mutex_t **forks
-				, t_philo **philo);
+void		ft_init_dinner(t_data *data, int nbr_philo, pthread_mutex_t **forks,
+				t_philo **philo);
 void		ft_begin_dinner(t_philo *philo);
 
 // ft_time.c
@@ -84,8 +84,8 @@ void		ft_table(t_philo *philo);
 void		*ft_check_dinner(void *philo);
 
 // ft_free.c
-void		ft_free_dinner(int nbr_philo, t_philo **philo, pthread_mutex_t **forks);
+void		ft_free_dinner(int nbr_philo, t_philo **philo,
+				pthread_mutex_t **forks);
 void		ft_free_data(t_data *data);
-
 
 #endif
