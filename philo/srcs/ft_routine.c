@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 23:42:36 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/03/02 19:34:32 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/03/03 00:04:52 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,15 @@ void	*ft_routine(void *philo)
 		if (ft_fed_up(aux))
 			return (NULL);
 		pthread_mutex_lock(aux->data->rip);
-		pthread_mutex_lock(aux->data->print);
 		if (!aux->data->death)
 			printf("%ld %d is sleeping\n",
 				ft_current_time(aux->data->first_meal), aux->index);
-		pthread_mutex_unlock(aux->data->print);
 		pthread_mutex_unlock(aux->data->rip);
 		ft_ms_sleep(aux->data->to_sleep);
 		pthread_mutex_lock(aux->data->rip);
-		pthread_mutex_lock(aux->data->print);
 		if (!aux->data->death)
 			printf("%ld %d is thinking\n",
 				ft_current_time(aux->data->first_meal), aux->index);
-		pthread_mutex_unlock(aux->data->print);
 		pthread_mutex_unlock(aux->data->rip);
 	}
 	return (NULL);
@@ -73,28 +69,28 @@ void	ft_table(t_philo *philo)
 	pthread_mutex_lock(philo->l_fork);
 	if (ft_gravedigger(philo))
 	{
-		pthread_mutex_unlock(philo->r_fork);
 		pthread_mutex_unlock(philo->l_fork);
+		pthread_mutex_unlock(philo->r_fork);
 		return ;
 	}
-	pthread_mutex_lock(philo->data->print);
+	pthread_mutex_lock(philo->data->rip);
 	printf("%ld %d has taken a fork\n%ld %d has taken a fork\n",
 		ft_current_time(philo->data->first_meal), philo->index,
 		ft_current_time(philo->data->first_meal), philo->index);
-	pthread_mutex_unlock(philo->data->print);
+	pthread_mutex_unlock(philo->data->rip);
 	pthread_mutex_lock(philo->eating);
 	philo->last_meal = ft_current_time(philo->data->first_meal);
 	pthread_mutex_unlock(philo->eating);
 	pthread_mutex_lock(philo->data->check_m_lock);
 	philo->eat++;
 	pthread_mutex_unlock(philo->data->check_m_lock);
-	pthread_mutex_lock(philo->data->print);
+	pthread_mutex_lock(philo->data->rip);
 	printf("%ld %d is eating\n",
 		ft_current_time(philo->data->first_meal), philo->index);
-	pthread_mutex_unlock(philo->data->print);
-	ft_ms_sleep(philo->data->to_eat);
-	pthread_mutex_unlock(philo->r_fork);
+	pthread_mutex_unlock(philo->data->rip);
 	pthread_mutex_unlock(philo->l_fork);
+	pthread_mutex_unlock(philo->r_fork);
+	ft_ms_sleep(philo->data->to_eat);
 }
 
 void	*ft_check_dinner(void *philo)

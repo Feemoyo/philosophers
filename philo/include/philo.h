@@ -39,7 +39,7 @@ typedef struct s_data
 	pthread_mutex_t	*t_lock;
 	pthread_mutex_t	*rip;
 	pthread_mutex_t	*check_m_lock;
-	pthread_mutex_t	*print;
+	//pthread_mutex_t	*print;
 }				t_data;
 
 typedef struct s_philo
