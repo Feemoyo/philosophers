@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:32:41 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/03/03 02:20:21 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:38:23 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	ft_init_dinner(t_data *data, int nbr_philo, pthread_mutex_t **forks,
 		(*philo)[i].data = data;
 	}
 	i--;
-	(*philo)[i].l_fork = &(*forks)[0];
-	(*philo)[i].r_fork = &(*forks)[i];
+	(*philo)[i].l_fork = &(*forks)[i];
+	(*philo)[i].r_fork = &(*forks)[0];
 }
 
 void	ft_begin_dinner(t_philo *philo)

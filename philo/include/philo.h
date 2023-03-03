@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:31:59 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/03/03 02:27:20 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:38:03 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,40 +54,41 @@ typedef struct s_philo
 }				t_philo;
 
 // ft_verify.c
-int			ft_verify(int argc, char **argv);
+int		ft_verify(int argc, char **argv);
 
 // ft_utils0.c
-int			ft_isnum(char **str, int argc);
-int			ft_atoi(const char *str);
+int		ft_isnum(char **str, int argc);
+int		ft_atoi(const char *str);
 
 // ft_init_table.c
-void		ft_init_data(int argc, char **argv, t_data *data);
-void		ft_init_dinner(t_data *data, int nbr_philo, pthread_mutex_t **forks,
-				t_philo **philo);
-void		ft_begin_dinner(t_philo *philo);
+void	ft_init_data(int argc, char **argv, t_data *data);
+void	ft_init_dinner(t_data *data, int nbr_philo, pthread_mutex_t **forks,
+			t_philo **philo);
+void	ft_begin_dinner(t_philo *philo);
 
 // ft_time.c
-long		ft_set_timer(void);
-void		ft_ms_sleep(int time_in_ms);
-long		ft_current_time(long start);
+long	ft_set_timer(void);
+void	ft_ms_sleep(int time_in_ms);
+long	ft_current_time(long start);
 
 // ft_utils1.c
-void		ft_hungry(t_philo *philo);
-int			ft_starve(t_philo *philo);
-int			ft_dinner_is_over(t_philo *philo);
+void	ft_hungry(t_philo *philo);
+int		ft_starve(t_philo *philo);
+int		ft_dinner_is_over(t_philo *philo);
 
 // ft_routine.c
-void		*ft_routine(void *philo);
-int			ft_gravedigger(t_philo *philo);
-int			ft_fed_up(t_philo *philo);
-void		ft_table(t_philo *philo);
-void		*ft_check_dinner(void *philo);
+void	*ft_routine(void *philo);
+int		ft_gravedigger(t_philo *philo);
+int		ft_fed_up(t_philo *philo);
+void	ft_table(t_philo *philo, int last);
+void	*ft_check_dinner(void *philo);
 
 // ft_free.c
-void		ft_free_dinner(t_philo **philo, pthread_mutex_t **forks);
-void		ft_free_data(t_data *data);
+void	ft_free_dinner(t_philo **philo, pthread_mutex_t **forks);
+void	ft_free_data(t_data *data);
 
 // ft_utils2.c
-void		ft_table_utils(t_philo *philo);
+void	ft_table_utils(t_philo *philo);
+void	lock_fork(pthread_mutex_t *l_fork, pthread_mutex_t *r_fork, int last);
 
 #endif

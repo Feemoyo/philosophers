@@ -6,12 +6,12 @@
 #    By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 17:52:25 by fmoreira          #+#    #+#              #
-#    Updated: 2023/03/01 19:15:11 by fmoreira         ###   ########.fr        #
+#    Updated: 2023/03/03 18:38:58 by fmoreira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
-CC		= gcc
+CC		= cc
 RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -g
 FLAGS	= -pthread
