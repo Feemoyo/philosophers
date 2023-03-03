@@ -13,14 +13,14 @@
 NAME	= philo
 CC		= gcc
 RM		= rm -rf
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 FLAGS	= -pthread
 
 INCD_	= philo.h
 INCD_DIR	= ./include
 
 SRCS	= main.c ft_verify.c ft_time.c ft_init_table.c ft_routine.c\
-			ft_utils0.c ft_utils1.c ft_free.c
+			ft_utils0.c ft_utils1.c ft_utils2.c ft_free.c
 SRCS_DIR	= ./srcs
 
 OBJS_DIR	= ./objs

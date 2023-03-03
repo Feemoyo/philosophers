@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:31:59 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/03/02 19:09:49 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/03/03 02:27:20 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct s_data
 	pthread_mutex_t	*t_lock;
 	pthread_mutex_t	*rip;
 	pthread_mutex_t	*check_m_lock;
-	//pthread_mutex_t	*print;
 }				t_data;
 
 typedef struct s_philo
@@ -85,8 +84,10 @@ void		ft_table(t_philo *philo);
 void		*ft_check_dinner(void *philo);
 
 // ft_free.c
-void		ft_free_dinner(int nbr_philo, t_philo **philo,
-				pthread_mutex_t **forks);
+void		ft_free_dinner(t_philo **philo, pthread_mutex_t **forks);
 void		ft_free_data(t_data *data);
+
+// ft_utils2.c
+void		ft_table_utils(t_philo *philo);
 
 #endif

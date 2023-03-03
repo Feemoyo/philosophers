@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:32:41 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/03/02 23:47:04 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/03/03 02:20:21 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	ft_init_dinner(t_data *data, int nbr_philo, pthread_mutex_t **forks,
 	while (++i < nbr_philo)
 	{
 		(*philo)[i].last_meal = ft_set_timer();
-		(*philo)[i].eating = (pthread_mutex_t *)
-			malloc(sizeof(pthread_mutex_t) * 1);
 		(*philo)[i].index = i + 1;
 		(*philo)[i].eat = 0;
 		(*philo)[i].l_fork = &(*forks)[i];
