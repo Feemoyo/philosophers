@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 23:42:36 by fmoreira          #+#    #+#             */
-/*   Updated: 2023/03/03 18:38:27 by fmoreira         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:41:25 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_fed_up(t_philo *philo)
 
 void	ft_table(t_philo *philo, int last)
 {
-	lock_fork (philo -> l_fork, philo -> r_fork, last);
+	ft_lock_fork (philo -> l_fork, philo -> r_fork, last);
 	if (ft_gravedigger(philo))
 	{
 		pthread_mutex_unlock(philo->l_fork);
